@@ -1,0 +1,1 @@
+mongorestore --drop --db ncs  C:\data\backup\ncs_backup\ncs

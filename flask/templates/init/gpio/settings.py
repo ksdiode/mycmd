@@ -1,0 +1,3 @@
+SECRET_KEY = 'this is secret'
+DEBUG=True
+TEMPLATES_AUTO_RELOAD=True

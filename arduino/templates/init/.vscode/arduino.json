@@ -1,0 +1,4 @@
+{
+    "sketch": "..\\start\\app.ino",
+    "board": "arduino:avr:uno"
+}

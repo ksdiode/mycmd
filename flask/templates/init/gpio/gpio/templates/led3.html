@@ -1,0 +1,60 @@
+{% extends 'base.html'%}
+
+{% block pagescript %}
+<script>
+  let toHex =  v =>("0"+ parseInt(v).toString(16)).slice(-2)
+  let rgbToHex = ({red,green,blue})=> "#" + toHex(red) + toHex(green) + toHex(blue)
+  $.ajaxSetup({url:'', contentType:"application/json; charset=utf-8"});
+  $(function() {
+    $('.colors').on('change', '[type=range]', (e)=>{
+      colors = {
+        red : parseInt($('#red-range').val()),
+        green : parseInt($('#green-range').val()),
+        blue : parseInt($('#blue-range').val())
+      }  
+
+      $.ajax({
+        type: 'POST',
+        data: colors, // JSON.stringify(colors)
+      }).then(data=>{
+        let hexColor = rgbToHex(data)
+        $('#led').css('color', hexColor);
+        console.log(data);
+      })
+
+
+      // 전송      
+      // $.post('', colors)
+      // .then(data=>{
+      //   let hexColor = rgbToHex(data)
+      //   $('#led').css('color', hexColor);
+      //   console.log(data);
+      // })
+    })
+}); 
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title"><i id="led" class="fas fa-lightbulb"></i> 3 Color LED</h4>
+    <div class="card-text colors">
+      <div>
+        <label for="red-range" style="width:50pt">Red</label>
+        <input type="range" id="red-range" name="red-range" value="0">
+      </div>
+      <div>
+        <label for="green-range" style="width:50pt">Green</label>
+        <input type="range" id="green-range" name="green-range">
+      </div>
+      <div>
+        <label for="blue-range" style="width:50pt">Blue</label>
+        <input type="range" id="blue-range" name="blue-range">
+      </div>
+    </div>
+    <a href="#" class="card-link">카드 링크</a>
+    <a href="#" class="card-link">다른 링크</a>
+  </div>
+</div>
+{% endblock %}
