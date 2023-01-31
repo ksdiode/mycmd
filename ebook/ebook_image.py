@@ -17,7 +17,7 @@ def find_max_height(dir_path, files):
   # return  max(heights)
   return max_height, max_file
 
-def convert(dir_path, files):
+def convert_image(dir_path, files):
   # dir_path.split('\\')[-1]
   target = 'convert-image'
   target_path = os.path.join(dir_path, target)
@@ -42,18 +42,14 @@ def convert(dir_path, files):
       print(e)
 
 
-dir_path = os.getcwd()
-# dir_path = 'C:/Users/a/Desktop/2022 IoT 2/이미지/새 폴더/OpenCV-Python으로 배우는 영상 처리 및 응용/output'
+def convert(argv):
+  dir_path = os.getcwd()
+  files = os.listdir(dir_path)
+  files = list(filter(lambda f: f.endswith('.jpg'), files))
 
-files = os.listdir(dir_path)
-files = list(filter(lambda f: f.endswith('.jpg'), files))
-
-
-
-
-height, fname = find_max_height(dir_path, files)
-# print(height, fname)
-# height = 2900
-convert(dir_path, files)
+  height, fname = find_max_height(dir_path, files)
+  # print(height, fname)
+  # height = 2900
+  convert(dir_path, files)
 
 

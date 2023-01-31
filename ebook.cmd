@@ -1,2 +1,2 @@
 @ECHO OFF
-node %~dp0\ebook %*
+python %~dp0\ebook\ebook.py %*

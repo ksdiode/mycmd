@@ -1,1 +1,0 @@
-python %~dp0\ebook_image.py
