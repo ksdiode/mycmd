@@ -1,6 +1,6 @@
 import os
 from os import path
-from PIL import Image
+# from PIL import Image
 from img2pdf import convert
 
 def mkdir(dirname):
