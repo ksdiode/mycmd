@@ -34,9 +34,12 @@ def make_magazine(argv):
     l_image = image.crop(l_box)
     r_image = image.crop(r_box)
 
-    if ix != 1:
-      l_image.save(f'split/{ix:03}-l.jpg', quality=98)
-      jpg_list.append(f'split/{ix:03}-l.jpg')
+    # if ix != 1:
+    #   l_image.save(f'split/{ix:03}-l.jpg', quality=98)
+    #   jpg_list.append(f'split/{ix:03}-l.jpg')
+
+    l_image.save(f'split/{ix:03}-l.jpg', quality=98)
+    jpg_list.append(f'split/{ix:03}-l.jpg')
 
     r_image.save(f'split/{ix:03}-r.jpg', quality=98)
     jpg_list.append(f'split/{ix:03}-r.jpg')
